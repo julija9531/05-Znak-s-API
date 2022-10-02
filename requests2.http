@@ -1,0 +1,43 @@
+@baseUrl = http://localhost:8000/api
+
+# получение датчиков
+GET {{baseUrl}}/sensors/
+Content-Type: application/json
+
+###
+
+# создание датчика
+POST {{baseUrl}}/sensors/
+Content-Type: application/json
+
+{
+  "name": "D3",
+  "description": "Датчик 3"
+}
+
+###
+
+# обновление датчика
+PATCH {{baseUrl}}/sensors/2/
+Content-Type: application/json
+
+{
+  "description": "Датчик 2 (изм.)"
+}
+
+###
+
+# добавление измерения
+POST {{baseUrl}}/measurements/
+Content-Type: application/json
+
+{
+  "sensor": 1,
+  "temperature": 22.2
+}
+
+###
+
+# получение информации по датчику
+GET {{baseUrl}}/sensors/detail/1/
+Content-Type: application/json
